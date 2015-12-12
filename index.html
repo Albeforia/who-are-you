@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Who Are You</title>
+	<link href="css/main.css" rel="stylesheet" type='text/css'>
+	<script src="./dist/jquery/dist/jquery.min.js"></script>
+	<script src="./dist/three.js/build/three.min.js"></script>
+	<script src="./dist/gsap/src/minified/TweenLite.min.js"></script>
+	<script src="./dist/gsap/src/minified/easing/EasePack.min.js"></script>
+	<script src="./dist/gsap/src/minified/plugins/BezierPlugin.min.js"></script>
+	<script src="./dist/gsap/src/minified/plugins/CSSPlugin.min.js"></script>
+	<script src="./dist/gsap/src/minified/jquery.gsap.min.js"></script>
+	<script src="./dist/velocity-animate/velocity.min.js"></script>
+	<script src="./js/font/text-geometry.js"></script>
+	<script src="./js/font/font-utils.js"></script>
+	<script src="./js/font/helvetiker_regular.typeface.js"></script>
+	<script src="./dist/bundle.js"></script>
+</head>
+
+<body>
+	<div class="main">
+		<div class="viewport"></div>
+		<svg class="info-svg" version="1.1" xmlns="http://www.w3.org/2000/svg">
+			<defs>
+				<pattern id="patternLine" width="10" height="10" patternUnits="userSpaceOnUse">
+					<line x1="0" y1="0" x2="10" y2="10" stroke-width="15"></line>
+				</pattern>
+			</defs>
+			<clipPath id="clipName">
+				<text id="name" x="50%" y="250" text-anchor="middle" word-spacing="20">I am Anthelion</text>
+			</clipPath>
+			<rect id="fill" width="100%" height="100%" fill="url(#patternLine)" clip-path="url(#clipName)" />
+			<g id="profile" transform="translate(150 350)">
+				<g id="border">
+					<line id="up" x1="0" y1="0" x2="0" y2="0"></line>
+					<line id="left" x1="0" y1="0" x2="0" y2="0"></line>
+					<line id="down" x1="400" y1="540" x2="400" y2="540"></line>
+					<line id="right" x1="400" y1="540" x2="400" y2="540"></line>
+				</g>
+				<path id="path"></path>
+				<text font-size="1.8em">
+					<textPath xlink:href="#path">P R O F I L E</textPath>
+				</text>
+				<g id="info">
+					<text x="40" y="150">Hometown : Nantong, Jiangsu, China</text>
+					<text x="40" y="190">Age : 20</text>
+					<text x="40" y="230">Now at : Nanjing University
+						<tspan dx="-100" dy="20">of Science and Technology</tspan>
+					</text>
+					<text x="40" y="290">Major : Software Engineering</text>
+					<text x="40" y="330">Programming Language Usage</text>
+					<text x="40" y="370">Research in : Game programming,
+						<tspan dx="-150" dy="20">Real-time 3D rendering</tspan>
+					</text>
+					<text x="40" y="430">Good at : Unity3D</text>
+					<text x="40" y="470">Telegram : @Anthelion</text>
+				</g>
+				<path id="pointer" stroke="white" fill="none">
+				</path>
+			</g>
+			<g id="tip" transform="translate(850 680)">
+				<text>TIP</text>
+				<line x1="0" y1="12" x2="0" y2="12"></line>
+				<text x="0" y="40">I listed four most important things at different stages</text>
+				<text x="0" y="60">of my life. They are distributed at section 3, 4, 5, 6</text>
+				<text x="0" y="80">of this page. If you happen to figure it out,</text>
+				<text x="0" y="100">welcome to Telegram me.</text>
+				<text x="0" y="130">This page is inspired by vaalentin's fancy</text>
+				<text x="0" y="150">showcase at
+					<tspan text-decoration="underline">http://vaalentin.github.io/2015/</tspan>
+				</text>
+				<text x="0" y="170">It's my attempt to learn WebGL with Three.js and</text>
+				<text x="0" y="190">modern animation techniques.</text>
+				<text x="0" y="210">You can find the code on my Github</text>
+			</g>
+		</svg>
+		<div id="chart"></div>
+	</div>
+</body>
+
+</html>

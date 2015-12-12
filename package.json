@@ -1,0 +1,41 @@
+{
+	"main": "./js/main.js",
+	"devDependencies": {
+		"browserify": "^12.0.1",
+		"browserify-shim": "^3.8.11"
+	},
+	"browser": {
+		"jquery": "./dist/jquery/dist/jquery.min.js",
+		"three": "./dist/three.js/build/three.min.js",
+		"tweenlite": "./dist/gsap/src/minified/TweenLite.min.js",
+		"tweenlite.easing": "./dist/gsap/src/minified/easing/EasePack.min.js",
+		"tweenlite.bezier": "./dist/gsap/src/minified/plugins/BezierPlugin.min.js",
+		"tweenlite.css": "./dist/gsap/src/minified/plugins/CSSPlugin.min.js",
+		"tweenlite.jquery": "./dist/gsap/src/minified/jquery.gsap.min.js",
+		"velocity": "./dist/velocity-animate/velocity.min.js"
+	},
+	"browserify-shim": {
+		"jquery": {
+			"exports": "global:jQuery",
+			"deps": [
+				"tweenlite",
+				"tweenlite.css",
+				"tweenlite.jquery"
+			]
+		},
+		"three": "global:THREE",
+		"tweenlite": {
+			"exports": "global:TweenLite",
+			"deps": [
+				"tweenlite.easing",
+				"tweenlite.bezier"
+			]
+		},
+		"velocity": "global:Velocity"
+	},
+	"browserify": {
+		"transform": [
+			"browserify-shim"
+		]
+	}
+}
