@@ -10,20 +10,18 @@
 function extend($, undefined) {
 	$.fn.drawPieChart = function (data, options) {
 		var $this = this,
-			W = $this.width(),
-			H = $this.height(),
-			centerX = W / 2,
-			centerY = H / 2,
 			cos = Math.cos,
 			sin = Math.sin,
 			PI = Math.PI,
 			settings = $.extend({
+				width: 100,
+				height: 100,
 				segmentShowStroke: true,
 				segmentStrokeColor: "#fff",
 				segmentStrokeWidth: 1,
 				baseColor: "#fff",
-				baseOffset: 15,
-				edgeOffset: 30, //offset from edge of $this
+				//baseOffset: 15,
+				//edgeOffset: 30, //offset from edge of $this
 				pieSegmentGroupClass: "pieSegmentGroup",
 				pieSegmentClass: "pieSegment",
 				lightPiesOffset: 12, //lighten pie's width
@@ -41,6 +39,10 @@ function extend($, undefined) {
 				onPieMouseleave: function (e, data) { },
 				onPieClick: function (e, data) { }
 			}, options),
+			W = settings.width,
+			H = settings.height,
+			centerX = W / 2,
+			centerY = H / 2,
 			animationOptions = {
 				linear: function (t) {
 					return t;
@@ -61,12 +63,12 @@ function extend($, undefined) {
 					};
 			} ();
 
-		var $wrapper = $('<svg width="' + W + '" height="' + H + '" viewBox="0 0 ' + W + ' ' + H + '" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>').appendTo($this);
+		var $wrapper = $this;
 		var $groups = [],
 			$pies = [],
 			$lightPies = [],
 			easingFunction = animationOptions[settings.animationEasing],
-			pieRadius = Min([H / 2, W / 2]) - settings.edgeOffset,
+			pieRadius = Min([H / 2, W / 2]),
 			segmentTotal = 0;
 
 		//Draw base circle
@@ -75,7 +77,7 @@ function extend($, undefined) {
 			var $base = $(base).appendTo($wrapper);
 			base.setAttribute("cx", centerX);
 			base.setAttribute("cy", centerY);
-			base.setAttribute("r", pieRadius + settings.baseOffset);
+			base.setAttribute("r", pieRadius);
 			base.setAttribute("fill", settings.baseColor);
 			base.setAttribute("opacity", 0);
 		} ();

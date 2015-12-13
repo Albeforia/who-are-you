@@ -132,6 +132,8 @@ function init() {
 					}
 				],
 				{
+					width: 300,
+					height: 300,
 					lightPiesOffset: 0
 				});
 		};
