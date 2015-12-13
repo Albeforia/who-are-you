@@ -3,6 +3,7 @@
 var TextureManager = TextureManager || (function () {
 	var THREE = require('three');
 	var loader = new THREE.TextureLoader();
+	loader.crossOrigin = "anonymous";
 	var textures = {};
 	return {
 		register: function (user, name, src, setTexture) {

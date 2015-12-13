@@ -107,6 +107,7 @@ HeightMap.prototype.loadMaps = function () {
 		default: new Float32Array(totalData)
 	};
 	var loader = new THREE.ImageLoader();
+	loader.crossOrigin = "anonymous";
 	var total = this.parameters.maps.length;
 	var loaded = 0;
 	var _this = this;
